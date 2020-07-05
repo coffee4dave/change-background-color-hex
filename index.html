@@ -10,14 +10,14 @@
     <link rel="icon" href="data:,">
     <style>
         body {
-            background-color: purple;
-            color: white;
+            background-color: #800080;
+            color: #FFFFFF;
             overflow: hidden;
         }
 
         button {
             border: solid black 2px;
-            color: white;
+            color: #ffffff;
             background-color: rgba(26, 26, 26, 0.8);
             height: 2rem;
             width: 7rem;
@@ -47,11 +47,12 @@
     </style>
 
 
-    <title>Change Background Color Project</title>
+    <title>Change Background Color Project Hex</title>
 </head>
 
 <body>
     <div class="container">
+        <h1></h1>
         <div class="row flex-column align-items-center justify-content-start">
             <div class="col-6">
                 <a class="btn btn-primary" href="https://coffee4dave.github.io/100js-projects-index/">Back</a>
@@ -75,20 +76,28 @@
             console.log("Page loaded.");
             console.log(bgColor);
             document.getElementById("color").textContent = "Color: " + bgColor;
+            document.getElementsByTagName('h1')[0].textContent = document.head.title.textContent;
         });
 
         document.getElementById("click-button").addEventListener("click", (e) => {
             document.body.style.backgroundColor = newcolor();
-            document.getElementById("color").textContent = "Color: " + document.body.style.backgroundColor;
+            document.getElementById("color").textContent = "Color: " + newcolor();
 
         });
 
+
+
         function newcolor() {
             let r = Math.floor(Math.random() * 255);
+            r = r.toString(16);
             let g = Math.floor(Math.random() * 255);
+            g = g.toString(16);
             let b = Math.floor(Math.random() * 255);
+            b = b.toString(16);
+            let hexval = `#${r}${g}${b}`;
 
-            return (`rgb(${r},${g},${b})`);
+            console.log(hexval)
+            return (hexval);
         }
     </script>
     <!-- Optional JavaScript -->
